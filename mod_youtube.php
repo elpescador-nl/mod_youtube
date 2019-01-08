@@ -8,7 +8,7 @@ $playlist = $params->get('playlist');
 $label = preg_replace('/[^a-zA-Z0-9]/', '', $params->get('label') );
 $label = strtolower($label);
 
-if( strlen($label) == 0 ) $label = $videoid;
+if( empty($label) ) $label = $videoid;
 
 JFactory::getDocument()->addScriptDeclaration('var tag=document.createElement(\'script\');'
 	.'tag.src="https://www.youtube.com/iframe_api";'
