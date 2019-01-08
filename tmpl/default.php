@@ -12,15 +12,15 @@ echo $pretext; ?>
 var players = players || [];
 function onYouTubeIframeAPIReady() {
 	var player = new YT.Player('player-<?php echo $label; ?>', {
-	    height: '100%',
-	    width: '100%',
+		height: '100%',
+		width: '100%',
 <?php if($videoid): ?>
 		videoId: '<?php echo $videoid; ?>',
 <?php else: ?>
-	    playerVars: { listType:'playlist', list: '<?php echo $playlist; ?>' },
+		playerVars: { listType:'playlist', list: '<?php echo $playlist; ?>' },
 <?php endif; ?>
-	    events: {
-	    	'onStateChange': function (event) {
+		events: {
+			'onStateChange': function (event) {
 
 				if(typeof ga !== 'undefined') {
 					var label = '<?php echo $label; ?>';
@@ -33,7 +33,7 @@ function onYouTubeIframeAPIReady() {
 							ga('send', 'event', 'video', 'end', label); break;
 					}
 				}
-		    }
+			}
 		}
 	});
 	players.push(player);
